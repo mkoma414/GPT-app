@@ -1,14 +1,12 @@
 import os
 import json
 import requests
-import logging
 from flask import Flask, request
 from slack_bolt import App
 from slack_bolt.adapter.flask import SlackRequestHandler
 
 # 環境変数の読み込み
 bot_token = os.environ["SLACK_BOT_TOKEN"]
-print(bot_token)
 slack_signing_secret = os.environ["SLACK_SIGNING_SECRET"]
 openai_api_key = os.environ["OPENAI_API_KEY"]
 
@@ -18,8 +16,6 @@ API_ENDPOINT = 'https://api.openai.com/v1/chat/completions'
 app = Flask(__name__)
 slack_app = App(token=bot_token, signing_secret=slack_signing_secret)
 handler = SlackRequestHandler(slack_app)
-
-print(slack_app)
 
 # メッセージイベントのリスナーを設定
 @slack_app.event("app_mention")
@@ -51,9 +47,7 @@ def command_handler(body, say):
 # Slackイベントのエンドポイント
 @app.route("/slack/events", methods=["POST"])
 def slack_events():
-    # logging.warning('called')
-    # return handler.handle(request)
-  return "test!!!"
+  return handler.handle(request)
 
 if __name__ == "__main__":
     app.run(debug=True)
