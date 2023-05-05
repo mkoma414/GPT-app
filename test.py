@@ -7,6 +7,7 @@ from slack_bolt.adapter.flask import SlackRequestHandler
 
 # 環境変数の読み込み
 bot_token = os.environ["SLACK_BOT_TOKEN"]
+print(bot_token)
 slack_signing_secret = os.environ["SLACK_SIGNING_SECRET"]
 openai_api_key = os.environ["OPENAI_API_KEY"]
 
