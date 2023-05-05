@@ -48,7 +48,7 @@ def command_handler(body, say):
 @app.route("/slack/events", methods=["POST"])
 def slack_events():
   # return handler.handle(request)
-  return "ok!"
+  return
 
 if __name__ == "__main__":
     app.run(debug=True)
