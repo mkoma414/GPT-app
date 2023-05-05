@@ -51,8 +51,9 @@ def command_handler(body, say):
 # Slackイベントのエンドポイント
 @app.route("/slack/events", methods=["POST"])
 def slack_events():
-    logging.warning('called')
-    return handler.handle(request)
+    # logging.warning('called')
+    # return handler.handle(request)
+  return "test!!!"
 
 if __name__ == "__main__":
     app.run(debug=True)
