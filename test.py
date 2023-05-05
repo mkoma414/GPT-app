@@ -1,6 +1,7 @@
 import os
 import json
 import requests
+import logging
 from flask import Flask, request
 from slack_bolt import App
 from slack_bolt.adapter.flask import SlackRequestHandler
@@ -9,6 +10,8 @@ from slack_bolt.adapter.flask import SlackRequestHandler
 bot_token = os.environ["SLACK_BOT_TOKEN"]
 slack_signing_secret = os.environ["SLACK_SIGNING_SECRET"]
 openai_api_key = os.environ["OPENAI_API_KEY"]
+
+logging.warning(slack_signing_secret)
 
 API_ENDPOINT = 'https://api.openai.com/v1/chat/completions'
 
