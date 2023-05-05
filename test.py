@@ -18,7 +18,6 @@ slack_app = App(token=bot_token, signing_secret=slack_signing_secret)
 handler = SlackRequestHandler(slack_app)
 
 # メッセージイベントのリスナーを設定
-# @slack_app.event("app_mention")
 @slack_app.message("hello") 
 def command_handler(body, say):
     text = body["event"]["text"]
