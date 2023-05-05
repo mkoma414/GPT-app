@@ -1,6 +1,7 @@
 import os
 import json
 import requests
+import logging
 from flask import Flask, request
 from slack_bolt import App
 from slack_bolt.adapter.flask import SlackRequestHandler
@@ -50,7 +51,7 @@ def command_handler(body, say):
 # Slackイベントのエンドポイント
 @app.route("/slack/events", methods=["POST"])
 def slack_events():
-    print("called")
+    logging.warning('called')
     return handler.handle(request)
 
 if __name__ == "__main__":
