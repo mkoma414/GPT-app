@@ -39,8 +39,12 @@ def command_handler(body, say):
         "stop": None,
         "temperature": 0.5,
     }
+
     response = requests.post(API_ENDPOINT, headers=headers, data=json.dumps(data))
     response = response.json()
+
+    logging.warning(response)
+
 
     # Slackに返答を送信
     reply = response["choices"][0]["message"]["content"].strip()
