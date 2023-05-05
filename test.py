@@ -46,12 +46,12 @@ def command_handler(body, say):
 # Slackイベントのエンドポイント
 @app.route("/slack/events", methods=["POST"])
 def slack_events():
-  test-message = request.json
+  test_message = request.json
 
-  if ('challenge' in test-message):
+  if ('challenge' in test_message):
     return {
       "statusCode": 200,
-      "body": json.dumps({'challenge': test-message['challenge']})
+      "body": json.dumps({'challenge': test_message['challenge']})
     }
 
   return handler.handle(request)
