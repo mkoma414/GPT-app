@@ -46,7 +46,7 @@ def command_handler(body, say):
 
 # Slackイベントのエンドポイント
 @app.route("/slack/events", methods=["POST"])
-def slack_events(data, context):
+def slack_events(data):
   # if ('challenge' in data):
   #   return {
   #     "statusCode": 200,
